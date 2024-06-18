@@ -34,6 +34,10 @@ func createEnv(envs map[string]string, projectDir string) {
 	}
 
 	for k, v := range envs {
+		if k == "DB_PASSWORD" {
+			content += fmt.Sprintf("%s='%s'\n", k, v)
+			continue
+		}
 		content += fmt.Sprintf("%s=%s\n", k, v)
 	}
 
